@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 }
 
-.erros__wrapper {
+.erros__wrapper, .resultados-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -18,6 +18,16 @@
     justify-content: center;
     align-items: center;
     width: 30%;
-    border: 1px solid red;
+    border: 1px solid #ff0000;
+    border-radius: 10px
+}
+
+.resultados-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    border: 1px solid #90ee90;
     border-radius: 10px
 }

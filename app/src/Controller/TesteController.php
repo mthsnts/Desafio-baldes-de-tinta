@@ -40,21 +40,31 @@ class TesteController extends AbstractController
         $parede4 = new Parede();
         $parede4->setNome('Parede 4');
         $paredesCollection->getParedes()->add($parede4);
+        $erros = [];
+        $latas = null;
 
         $form = $this->createForm(ParedesCollectionType::class, $paredesCollection);
         $form->handleRequest($request);
-        $erros = [];
+
 
         if($form->isSubmitted() && $form->isValid()) {
             $paredes = $form->getData()->getParedes();
             foreach ($paredes as $parede) {
-                $erros[] = $paredeBusiness->validaRegras($parede);
+                $validacoes = $paredeBusiness->validaRegras($parede);
+                if(!empty($validacoes)){
+                    $erros[] = $validacoes;
+                }
+            }
+            if(empty($erros)){
+                $areaTotalParedes = $paredeBusiness->calcularAreaTotalDasParedes($paredes);
+                $latas = $paredeBusiness->calculaQuantidadeDeLatasNecessarias($areaTotalParedes);
             }
         }
 
         return $this->renderForm('Parede/index.html.twig', [
             'form' => $form,
-            'erros' => $erros
+            'erros' => $erros,
+            'latas' => $latas
         ]);
     }
 }

@@ -34,9 +34,9 @@
 <div style="margin-left: 45%; margin-top: 5%">
     {{ form_widget(form.calcular) }}
 </div>
-<div class="erros__wrapper">
-    <div class="erros-card">
-        {% if erros %}
+{% if erros %}
+    <div class="erros__wrapper">
+        <div class="erros-card">
             <h4>Foram encontrados os Seguintes erros</h4>
             <ul>
                 {% for erroCollection in erros %}
@@ -45,9 +45,21 @@
                     {% endfor %}
                 {% endfor %}
             </ul>
-        {% endif %}
+        </div>
     </div>
-</div>
->{{ form_end(form) }}
+{% endif %}
+{% if latas %}
+    <div class="resultados-wrapper">
+        <div class="resultados-card">
+            <h4>Você precisará de uma das seguintes quantidades de latas</h4>
+            <ul>
+                {% for lata in latas %}
+                    <li>{{ lata.quantidade }} latas de {{ lata.lata }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+{{ form_end(form) }}
 </body>
 </html>
