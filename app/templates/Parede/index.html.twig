@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+</head>
+<body>
+{{ form_start(form) }}
+<div style="display: flex; justify-content: center">
+    <h3>Quantidade de latas de tinta</h3>
+</div>
+<div class="tags">
+    <div class="input-group campos-form">
+        {% for parede in form.paredes %}
+            <div class="formFields__wrapper">
+                <div class="formFields__content">
+                    {{ form_row(parede) }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div style="margin-left: 45%; margin-top: 5%">
+    {{ form_widget(form.calcular) }}
+</div>
+{% if erros %}
+    <div class="erros__wrapper">
+        <div class="erros-card">
+            <h4>Foram encontrados os Seguintes erros</h4>
+            <ul>
+                {% for erroCollection in erros %}
+                    {% for erro in erroCollection %}
+                        <li>{{ erro }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+{% if latas %}
+    <div class="resultados-wrapper">
+        <div class="resultados-card">
+            <h4>Você precisará de uma das seguintes quantidades de latas</h4>
+            <ul>
+                {% for lata in latas %}
+                    <li>{{ lata.quantidade }} latas de {{ lata.lata }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+{{ form_end(form) }}
+</body>
+</html>

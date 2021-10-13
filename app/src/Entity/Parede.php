@@ -1,17 +1,25 @@
 <?php
 
 
-namespace Entity;
+namespace App\Entity;
 
 
 class Parede
 {
 
+    /**
+     * @var
+     * @Assert\Type(type="float", message="must be a numeric value")
+     */
     private $largura;
+    /**
+     * @var
+     * @Assert\Type(type="float", message="must be a numeric value")
+     */
     private $altura;
-    private $area;
     private $janelas;
     private $portas;
+    private $nome;
 
     /**
      * @return mixed
@@ -26,7 +34,7 @@ class Parede
      */
     public function setLargura($largura)
     {
-        $this->largura = $largura;
+        $this->largura = floatval($largura);
     }
 
     /**
@@ -42,7 +50,7 @@ class Parede
      */
     public function setAltura($altura)
     {
-        $this->altura = $altura;
+        $this->altura = floatval($altura);
     }
 
     /**
@@ -84,5 +92,22 @@ class Parede
     {
         return $this->getAltura() * $this->getLargura();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
 
 }
