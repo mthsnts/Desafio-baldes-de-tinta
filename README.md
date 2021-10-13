@@ -21,4 +21,5 @@ Com base na quantidade necessária o sistema deve apontar tamanhos de lata de ti
 
 ### como testar
   1. Na raiz do projeto, rodar o comando `docker-compose up -d --build`
-  2. No navegador, acessar `http://localhost:8080`
+  2. Após, executar o comando ` docker-compose run --rm php composer install`
+  3. No navegador, acessar `http://localhost:8080`
