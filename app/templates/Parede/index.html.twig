@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <title>Document</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -25,8 +26,10 @@
 <div class="tags">
     <div class="input-group campos-form">
         {% for parede in form.paredes %}
-            <div class="form-group">
-                {{ form_row(parede) }}
+            <div class="formFields__wrapper">
+                <div class="formFields__content">
+                    {{ form_row(parede) }}
+                </div>
             </div>
         {% endfor %}
     </div>

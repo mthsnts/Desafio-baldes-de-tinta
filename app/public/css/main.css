@@ -19,7 +19,7 @@
     align-items: center;
     width: 30%;
     border: 1px solid #ff0000;
-    border-radius: 10px
+    border-radius: 10px;
 }
 
 .resultados-card {
@@ -30,4 +30,29 @@
     width: 30%;
     border: 1px solid #90ee90;
     border-radius: 10px
+}
+
+.formFields__wrapper {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    min-height: 274px;
+    max-width: 360px;
+}
+
+.formFields__content {
+    padding: 10px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .erros-card, .resultados-card {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .erros-card, .resultados-card {
+        width: 100%;
+    }
 }
