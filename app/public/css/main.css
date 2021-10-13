@@ -1,0 +1,23 @@
+.campos-form {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.erros__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.erros-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    border: 1px solid red;
+    border-radius: 10px
+}
