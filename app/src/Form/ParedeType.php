@@ -15,10 +15,10 @@ class ParedeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('Largura', NumberType::class, ['label' => 'Largura','attr' => ['placeholder' => 'Largura da parede', 'class' => 'form-control', 'scale' => 2]])
-            ->add('Altura',NumberType::class, ['label' => 'Altura', 'attr' => ['placeholder' => 'Altura da parede', 'class' => 'form-control']])
-            ->add('portas', NumberType::class, ['label' => 'Quantidade de Portas', 'attr' => ['placeholder' => 'Quantidade de portas', 'class' => 'form-control']])
-            ->add('janelas', NumberType::class, ['label' => 'Quantidade de Janelas', 'attr' => ['placeholder' => 'quantidade de janelas', 'class' => 'form-control']]);
+        $builder->add('Largura', NumberType::class, ['label' => 'Largura', 'invalid_message' => 'Insira apenas números','attr' => ['placeholder' => 'Largura da parede', 'class' => 'form-control', 'scale' => 2]])
+            ->add('Altura',NumberType::class, ['label' => 'Altura', 'invalid_message' => 'Insira apenas números', 'attr' => ['placeholder' => 'Altura da parede', 'class' => 'form-control']])
+            ->add('portas', IntegerType::class, ['label' => 'Quantidade de Portas', 'attr' => ['placeholder' => 'Quantidade de portas', 'class' => 'form-control']])
+            ->add('janelas', IntegerType::class, ['label' => 'Quantidade de Janelas', 'attr' => ['placeholder' => 'quantidade de janelas', 'class' => 'form-control']]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
